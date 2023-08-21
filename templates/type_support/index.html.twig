@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Types de support des tutoriels - WeFrip'{% endblock %}
+
+{% block body %}
+
+<div class="d-flex">
+    <a href="{{ path('app_tutorial') }}">
+        <button type="submit" class="btn bouton mt-3"><i data-feather="arrow-left"></i> Retour</button>
+    </a>
+</div>
+
+<h1 class="text-center m-3">Tutoriels - Tous les types de support</h1>
+
+<div class="row m-3 gap-5 justify-content-center">
+        <div class="col-12 col-md-4 bouton2 btn shadow">
+            <a href="{{ path('app_showFiche') }}">
+            <img src="{{ asset('/img/imageTuto/image-fichier.png') }}" class="card-img-top rounded fichier"  alt="image pour les fiches">
+                <h3 class="text-center my-2">Fiche</h3>
+            </a>
+        </div>
+
+        <div class="col-12 col-md-4 bouton2 btn shadow">
+            <a href="{{ path('app_showVideo') }}">
+                <img src="{{ asset('/img/imageTuto/image-video.png') }}" class="card-img-top rounded fichier" alt="image pour les vidéos">
+                <h3 class="text-center my-2">Vidéo</h3>
+            </a>
+        </div>
+</div>
+
+{% endblock %} 

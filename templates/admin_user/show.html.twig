@@ -1,0 +1,61 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Utilisateurs - WeFrip'{% endblock %}
+
+{% block body %}
+    <h1>Utilisateurs</h1>
+
+    <div class="d-flex flex-row justify-content-between">
+    <a href="{{ path('app_admin_user_index') }}" class="btn btn-primary mb-3"><i class="align-middle" data-feather="skip-back"></i></a>
+    {{ include('admin_user/_delete_form.html.twig') }}
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mot de passe</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ user.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Lien vers l'avatar</th>
+                <td>{{ user.avatar }}</td>
+            </tr>
+            <tr>
+                <th>Nom de famille</th>
+                <td>{{ user.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ user.userSlug }}</td>
+            </tr>
+            <tr>
+                <th>Utilisateur ajouté le :</th>
+                <td>{{ user.userUpdatedAt ? user.userUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}" class="btn btn-success mb-3"><i class="align-middle" data-feather="edit-3"></i> Modifier</a>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - WeFrip'{% endblock %}
+
+{% block body %}
+<h1 class="text-center m-3">Bienvenue sur WeFrip'</h1>
+
+<div class="container-fluid m-3">
+	<div class="row justify-content-center m-3">
+		<div class="col-lg-5 col-md-6 col-sm-12 d-flex align-items-center">
+			<p>Chez nous, les vêtements prennent une seconde vie,
+			transformés avec amour et créativité.
+			<br>Chaque pièce raconte une histoire unique, mêlant style,
+			durabilité et conscience écologique.
+			<br>Rejoignez-nous dans notre voyage pour une mode plus
+			responsable, où la beauté se marie à la réduction des déchets.
+			<br>Ensemble, réinventons la mode, une couture à la fois.</p>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<img src="{{ asset('img/imageHome/schemawefrip.png') }}" alt="schema" class="img-fluid">
+		</div>
+	</div>
+		
+	<div class="row justify-content-center m-3">
+		<div class="col-lg-5 col-md-6 col-sm-12">
+			<div class="card h-100 p-3">
+				<img src="{{ asset('img/imageHome/image-map.jpg') }}" class="rounded-right rounded-top images-tuto" alt="photo de vide dressing">
+				<div class="card-body text-center">
+					<h2 class="card-title"> Carte interactive </h2>
+					<p class="card-text">Explorez notre carte interactive pour dénicher des trésors uniques au sein des vide-dressings entre particuliers. Une mode responsable et authentique à portée de clic !</p>
+					<a href="{{ path('app_map') }}">
+						<button class="bouton btn mx-auto">Découvrir la carte</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-5 col-md-6 col-sm-12 mt-3 mt-md-0">
+			<div class="card h-100 p-3">
+				<img src="{{ asset('img/imageHome/image-tutoriels.jpg') }}" class="rounded-right rounded-top images-tuto" alt="femme faisant du do it yourself">
+				<div class="card-body text-center">
+					<h2 class="card-title-home"> Tutoriels upcycling </h2>
+					<p class="card-text">Développez votre créativité avec nos tutoriels de vêtements. Du débutant passionné à l'expert en quête d'inspiration, découvrez des astuces pratiques pour donner vie à vos propres pièces uniques, à la fois stylées et durables.</p>
+					<a href="{{ path('app_tutorial') }}" >
+						<button class="bouton btn mx-auto">Explorer les tutoriels</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

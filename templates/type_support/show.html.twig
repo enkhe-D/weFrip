@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les tutoriels par support - WeFrip'{% endblock %}
+
+{% block body %}
+<h1 class="text-center m-3">Support : {{ controller_name }}</h1>
+
+{% if typesSupport is not empty %}
+    {# On affiche toutes les vidéos de la catégorie avec une boucle #}
+    <div class="row">
+
+        {% for tutorial in typesSupport %}
+                {% include 'common/_card.html.twig' %}
+        {% endfor %}
+    </div>
+
+{% else %}
+
+    <p class="text-center">Aucun tutoriel trouvé pour cette catégorie. </p>
+
+{% endif %} 
+
+<div class="d-flex justify-content-center mb-3">
+    <a href="{{ path('app_type_support') }}" class="text-center">
+        <button class="bouton btn mx-auto">Explorer les autres types de supports</button>
+    </a>
+</div>
+
+{% endblock %}

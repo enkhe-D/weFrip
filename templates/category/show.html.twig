@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{category.categoryName}} : les tutoriels - WeFrip'{% endblock %}
+
+{% block body %}
+<h1 class="text-center m-3">Catégorie : {{ category.categoryName }}</h1>
+
+{% if category.tutorials is not empty %}
+    {# On affiche toutes les vidéos de la catégorie avec une boucle #}
+    <div class="row">
+
+        {% for tutorial in category.tutorials %}
+            {% include 'common/_card.html.twig' %}
+        {% endfor %}
+    </div>
+
+{% else %}
+
+    <p class="text-center">Aucun tutoriel trouvé pour cette catégorie. </p>
+
+{% endif %} 
+
+<div class="d-flex justify-content-center mb-3">
+    <a href="{{ path('app_category') }}" class="text-center">
+        <button class="bouton btn mx-auto">Explorer les autres catégories</button>
+    </a>
+</div>
+
+{% endblock %}

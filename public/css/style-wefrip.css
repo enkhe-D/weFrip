@@ -1,0 +1,284 @@
+/* font-family: 'Chewy', cursive;
+font-family: 'Red Hat Display', sans-serif; */
+@font-face {
+	font-family: 'Another shabby';
+	src: url('../fonts/fonts-AnotherShabby/Anothershabby_pro_regular_v3_trial.ttf') format('truetype')
+}
+html, body {
+	font-family: 'Red Hat Display', sans-serif;
+    background-color: #F7F3F3;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+h1{
+    font-family: "Another shabby";
+}
+
+h2, h3{
+    font-family:'Geologica';
+}
+
+h3{
+    color: white;
+}
+
+a{
+    color:black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #375CA6;
+}
+
+/* Tous les boutons #375CA6 texte #F7F3F3, hover #D98E04 */
+.bouton, .bouton2:hover, .media:hover  {
+    background-color: #375CA6;
+    color: #F7F3F3;
+    cursor:pointer;
+}
+
+.bouton:hover, .bouton2, .media {
+    background-color: #D98E04;
+    color: #F7F3F3;
+    cursor:pointer;
+}
+
+/* Pour la barre de navigation */
+nav{
+    background-color: #f8f9fa;
+    color: black;
+}
+
+nav .logoWeFrip {
+    width:120px;
+}
+
+nav .avatarProfil {
+    width:40px;
+    height:40px;
+    object-fit: cover;
+}
+
+
+/* CSS pour la catégorie */
+.category-image {
+    width: 200px; 
+    height: 150px; 
+    object-fit: cover; /* Ajustement de l'image pour remplir le conteneur */
+}
+
+/* CSS pour les cards tutoriels */
+.images-tuto {
+    height: 260px;
+    object-fit: cover;
+}
+
+/* CSS pour les images events */
+.images-event {
+    height: 150px;
+    object-fit: cover;
+}
+
+/* CSS pour les types de support */
+.fichier{
+    height: 250px;
+    object-fit: contain;
+}
+
+/*CSS pour la map*/
+#maCarte{
+    /* width: 100%; */
+    height: 500px;
+    z-index:0;
+}
+
+#eventInfo {
+    height:500px;
+}
+
+.cardEvent {
+    height:100%;
+}
+
+#maModale {
+    display:none;
+    z-index:10;
+}
+
+#centerDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+}
+
+.circle-info {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #E1C9B3;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+
+.circle-info:hover .info-text {
+    opacity: 1;
+    visibility: visible;
+    }
+
+.info-text {
+    position: absolute;
+    background-color: #E1C9B3;
+    top: -700%;
+    left: -650%;
+    width:30em;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+
+@media (max-width: 768px) {
+#zoneCarteEvent {
+    flex-direction: column;
+}
+
+#eventInfo {
+    height:auto;
+    width:100%;
+}
+
+.cardEvent {
+    height:auto;
+    width:100%;
+}
+
+.circle-info:hover .info-text {
+    opacity: 1;
+    visibility: visible;
+    left: -135px;
+    font-size: smaller;
+    }
+.info-text {
+        position: absolute;
+        background-color: #E1C9B3;
+        top: -748%;
+        left: -650%;
+        width:20em;
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* CSS pour le profil */
+.profilUser {
+    background-color: #E1C9B3;
+}
+
+.profilUser .avatarProfil {
+    width:100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+#BGcontainer{
+    background-color: #E1C9B3;
+}
+
+#login-inscrire a, .connecter a, .info-text a{
+    text-decoration: underline;
+    color: #375CA6;
+}
+
+#card-img-top{
+    padding: 3rem;
+}
+
+#login-inscrire .mdp-oublie a{
+    text-decoration: none;
+    color: black;
+}
+
+/* CSS pour le footer */
+footer{
+    /* Assurez-vous que le footer a un fond de couleur ou une bordure pour être visible */
+    background-color: #f8f9fa;
+    margin-top: auto;
+    font-size: small;
+}
+
+.element-flex{
+    display: flex;
+}
+
+.loader{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader{
+    visibility:hidden; 
+    background-image:linear-gradient(rgb(55 92 166 / 78%), #D98E04);
+    position:fixed;
+    z-index: 1;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    animation-name:loader;
+    animation-duration: 1s;
+}
+
+.t-shirt, .load-text{
+    color: whitesmoke;
+}
+
+.t-shirt {
+    font-size: 52px;
+    position: absolute;
+    top: 44%;
+}
+
+.load-text{
+    font-size: 29px;
+    color: #375CA6;
+}
+
+.spinner{
+    border: 16px solid transparent;
+    border-top: 16px solid #375CA6;
+    border-bottom: 16px solid #D98E04;
+    border-radius:50%;
+    width: 120px;
+    height: 120px;
+    animation:spin 200ms linear infinite;
+}
+
+@keyframes loader {
+    from{
+        visibility: hidden;
+    }
+    to{
+        visibility: visible;
+    }
+}
+
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+
+    }
+    100%{transform: rotate(360deg);}
+}
+
+/* #D98E04 #E1C9B3 #375CA6 */

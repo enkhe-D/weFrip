@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire d'inscription
+{% endblock %}
+
+{% block body %}
+	{% if app.user is not null %}
+
+		{% for flash_error in app.flashes('verify_email_error') %}
+			<div class="alert alert-danger alert-dismissible" role="alert">{{ flash_error }}</div>
+		{% endfor %}
+
+		<h3 class="mb-3 text-center">
+			Tu es déjà connecté.e avec l'adresse mail :
+			{{ app.user.userIdentifier }}.
+			<p>Tu peux partir à la découverte de WeFrip' !</p>
+			<a href="{{path('app_logout')}}" class="btn bouton2 m-3">Se déconnecter</a>
+		</h3>
+	{% else %}
+
+		{# py=padding vertical , je mets 2 mais ça peut aller jusqu'à 5#}
+		<div class="container-fluid m-auto justify-content-center w-60 my-5 rounded py-2 p-5" id="BGcontainer">
+			<h1 class="text-center m-3">Formulaire d'inscription</h1>
+			{{ form_errors(registrationForm) }}
+			{{ form_start(registrationForm) }}
+
+			{{ form_row(registrationForm.email, {
+				'label': 'Email*',
+				'attr': {'placeholder':'Entrer un email'}
+			}) }}
+
+			{{ form_row(registrationForm.password) }}
+
+			{{ form_row(registrationForm.pseudo, {
+				'attr': {'placeholder':'Choisir un pseudo...'}
+			}) }}
+
+			{{ form_row(registrationForm.avatar) }}
+
+			{{ form_row(registrationForm.agreeTerms) }}
+
+			<button type="submit" class="btn bouton my-3 d-grid gap-2 col-2 mx-auto w-auto">M'inscrire</button>
+
+
+			<div id="login-inscrire" class="text-center">
+				<p>Déjà un compte ?
+					<a href="{{path('app_login')}}">Connecte-toi.</a>
+				</p>
+			</div>
+		</div>
+		{{ form_end(registrationForm) }}
+	{% endif %}
+{% endblock %}
+
+{# {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }} #}

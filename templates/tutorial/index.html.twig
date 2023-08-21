@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}Les tutoriels - WeFrip'{% endblock %}
+{% block body %}
+
+    <h1 class="text-center m-3">Les tutoriels pour transformer vos vêtements</h1>
+
+    <div class="d-flex flex-row align-items-center justify-content-center m-4 gap-3">
+        <a href="{{ path('app_category') }}" class="text-center">
+            <button class="bouton btn mx-auto">Voir les catégories</button>
+        </a>
+        {# A modifier pour faire une route app_support #}
+        <a href="{{ path('app_type_support') }}" class="text-center">
+            <button class="bouton2 btn mx-auto">Voir les types de tutoriels</button>
+        </a>
+    </div>
+
+    <div class="row">
+        {# On affiche toutes les vidéos avec une boucle #}
+        {% for tutorial in tutorials %}
+                {% include 'common/_card.html.twig' %}
+        {% endfor %}
+    </div>
+{% endblock %}

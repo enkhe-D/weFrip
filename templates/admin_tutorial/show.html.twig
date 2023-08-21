@@ -1,0 +1,55 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Tutoriels - WeFrip'{% endblock %}
+
+{% block body %}
+    <h1>Tutoriels</h1>
+    <div class="d-flex flex-row justify-content-between">
+    <a href="{{ path('app_admin_tutorial_index') }}" class="btn btn-primary mb-3"><i class="align-middle" data-feather="skip-back"></i></a>
+    {{ include('admin_tutorial/_delete_form.html.twig') }}
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tutorial.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom du tutoriel</th>
+                <td>{{ tutorial.tutoName }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ tutorial.tutoDescription }}</td>
+            </tr>
+            <tr>
+                <th>Nom du fichier</th>
+                <td>{{ tutorial.tutoFileName }}</td>
+            </tr>
+            <tr>
+                <th>Nom de la vidéo</th>
+                <td>{{ tutorial.tutoVideoName }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'image</th>
+                <td>{{ tutorial.tutoImageName }}</td>
+            </tr>
+            <tr>
+                <th>Type de support</th>
+                <td>{{ tutorial.tutoSupportType }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ tutorial.tutoSlug }}</td>
+            </tr>
+            <tr>
+                <th>Ajouté le :</th>
+                <td>{{ tutorial.tutoUpdatedAt ? tutorial.tutoUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_tutorial_edit', {'id': tutorial.id}) }}" class="btn btn-success mb-3"><i class="align-middle" data-feather="edit-3"></i> Modifier</a>
+
+{% endblock %}
